@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <b:form>
+            <br />
+            <b:label value="User name"></b:label>
+            <b:inputText value="#{loginController.currentUser.userName}"></b:inputText>
+            <br />
+            <b:label value="Password"></b:label>
+            <b:inputText value="#{loginController.password}"></b:inputText>
+             <br />
+             <b:commandButton  value="Login" action="#{loginController.login}"></b:commandButton>
+            
+        </b:form>
+    </h:body>
+</html>
+

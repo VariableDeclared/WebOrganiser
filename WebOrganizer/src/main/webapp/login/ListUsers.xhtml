@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Users</title>
+    </h:head>
+    <h:body>
+        <b:form>
+        <b:dataTable value="#{loginController.users}" var="user">
+            
+            <b:dataTableColumn label="User Name"  value="#{user.userName}"></b:dataTableColumn>
+  
+           <b:dataTableColumn  label="User ID" value="#{user.id}"></b:dataTableColumn>
+            <b:dataTableColumn label="Manage User   ">
+                <b:commandButton value="Delete User" action="#{loginController.deleteUser(user)}" >
+                </b:commandButton>
+            </b:dataTableColumn>
+        </b:dataTable>
+            
+            <b:commandButton value="Home" action="#{loginController.goHome()}"></b:commandButton>
+        </b:form>
+    </h:body>
+</html>
+

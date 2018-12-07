@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Add your address</title>
+        <a href="../../java/com/pete/weborganizer/persistence/entities/Address.java"></a>
+    </h:head>
+    <h:body>
+        <b:form>
+            <b:label value="House Name?"></b:label>
+            <b:selectBooleanCheckbox value="#{homeController.isHouseName}"></b:selectBooleanCheckbox>
+            <b:label value="House Name"></b:label>
+            <b:inputText value="#{homeController.houseName}"></b:inputText>
+            <b:label value="House Number"></b:label>
+            <b:inputText value="#{homeController.currentUser.address.houseStreet}"></b:inputText>
+            <b:label value="House Street"></b:label>
+            <b:inputText value="#{homeController.currentUser.address.houseStreet}"></b:inputText>
+            <b:label value="Post Code Town"></b:label>
+            <b:inputText value="#{homeController.currentUser.address.postCodeTown}"></b:inputText>
+            <b:label value="Post Code"></b:label>
+            <b:inputText value="#{homeController.currentUser.address.postCode}"></b:inputText>
+            
+            <b:commandButton value="Create Account" action="#{homeController.createUser}"></b:commandButton>
+            
+            
+        </b:form>
+    </h:body>
+</html>
+

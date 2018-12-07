@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pete.weborganizer.persistence;
+package com.pete.weborganizer.persistence.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -11,7 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
-import javax.persistence.ManyToOne;
+import java.util.ArrayList;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -26,11 +28,54 @@ public class Appointment implements Serializable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Timestamp appointmentStart, appointmentEnd;
+    @ManyToMany
+    private ArrayList<Person> participants;
+
+    public ArrayList<Person> getParticipants()
+    {
+        return participants;
+    }
+
+    public void setParticipants(ArrayList<Person> participants)
+    {
+        this.participants = participants;
+    }
+    @NotNull
     private String appointmentDesc;
     
-    @ManyToOne
-    private Person[] participants;
     
+    public Timestamp getAppointmentStart()
+    {
+        return appointmentStart;
+    }
+
+    public void setAppointmentStart(Timestamp appointmentStart)
+    {
+        this.appointmentStart = appointmentStart;
+    }
+
+    public Timestamp getAppointmentEnd()
+    {
+        return appointmentEnd;
+    }
+
+    public void setAppointmentEnd(Timestamp appointmentEnd)
+    {
+        this.appointmentEnd = appointmentEnd;
+    }
+
+    public String getAppointmentDesc()
+    {
+        return appointmentDesc;
+    }
+
+    public void setAppointmentDesc(String appointmentDesc)
+    {
+        this.appointmentDesc = appointmentDesc;
+    }
+
+    
+
 
     public Long getId()
     {

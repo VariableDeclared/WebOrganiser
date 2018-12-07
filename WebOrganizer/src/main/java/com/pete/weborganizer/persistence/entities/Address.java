@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.pete.weborganizer.persistence;
+package com.pete.weborganizer.persistence.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import com.pete.weborganizer.util.HouseIdentifier;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -25,11 +26,23 @@ public class Address implements Serializable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Integer houseNumber;
-    private String houseName, houseStreet, postCodeTown, postCode;
+    private String houseName;
+    @NotNull
+    private String houseStreet, postCodeTown, postCode;
     
     public HouseIdentifier getHouseNameOrNumber() {
         return new HouseIdentifier(this.houseName, this.houseNumber);
     }
+    
+    
+    public void setHouseNameOrNumber(HouseIdentifier ident) {
+        if (ident.getIsHouseName()) {
+            this.houseName = ident.toString();
+        } else {
+            this.houseNumber = new Integer(ident.toString());
+        }
+    }
+
 
     public String getHouseStreet()
     {

@@ -13,6 +13,11 @@ public class HouseIdentifier
 {
     
     Boolean isHouseName;
+
+    public Boolean getIsHouseName()
+    {
+        return isHouseName;
+    }
     Integer houseNumber;
     String houseName;
 
